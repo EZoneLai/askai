@@ -46,19 +46,24 @@ export default function SignupForm() {
   if (submitted) {
     return (
       <div className="max-w-md mx-auto text-center py-10">
-        <div className="text-5xl mb-4">🎉</div>
-        <h3 className="text-2xl font-bold text-white mb-3">收到了！</h3>
-        <p className="text-base text-gray-200 mb-8">
-          我們會盡快透過 Email 聯繫你。<br />
-          也歡迎直接加 LINE 即時問問題！
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
+          style={{ background: 'rgba(6,199,85,0.15)', border: '2px solid rgba(6,199,85,0.4)' }}>
+          <span className="text-3xl">✓</span>
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-3">已收到！</h3>
+        <p className="text-base text-gray-200 mb-2">
+          請記得加入 LINE@，方便我們聯繫你報名細節。
         </p>
+        <p className="text-sm text-gray-400 mb-8">加入後也可以直接詢問課程內容與場次安排。</p>
         <a
           href="https://line.me/R/ti/p/@815ndzxp"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary inline-flex items-center gap-2 text-base px-8 py-4"
+          className="inline-flex items-center gap-3 text-base font-bold px-8 py-4 rounded-xl transition-all"
+          style={{ background: '#06C755', color: '#fff', boxShadow: '0 6px 24px rgba(6,199,85,0.35)' }}
         >
-          加入 LINE 官方帳號 →
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.8 4.1 7.55v2.7l2.54-1.4c.76.21 1.56.33 2.36.33 5.52 0 10-4.03 10-9s-4.48-9-10-9z"/></svg>
+          加入 LINE@
         </a>
       </div>
     )

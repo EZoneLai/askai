@@ -247,6 +247,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ───── Sessions ───── */}
+      <section className="py-24 px-6 border-t border-white/5">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4 text-sm font-medium"
+              style={{ background: 'rgba(245,158,11,0.12)', color: '#F59E0B', border: '1px solid rgba(245,158,11,0.3)' }}>
+              📅 近期開課
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-2">近期場次</h2>
+            <p className="text-base text-gray-400">線上直播，購買課程後可無限回放錄影</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            {[
+              {
+                date: '3 / 20', day: '週四', duration: '3 小時',
+                badge: '免費說明', badgeStyle: { background: 'rgba(6,182,212,0.12)', color: '#06B6D4', border: '1px solid rgba(6,182,212,0.3)' },
+                title: '智速｜3 小時說明會',
+                desc: '從想法到上線，手把手帶你走完 16 步驟流程，現場解答疑問。',
+              },
+              {
+                date: '3 / 27', day: '週四', duration: '3 小時',
+                badge: '雙課融合', badgeStyle: { background: 'rgba(245,158,11,0.12)', color: '#F59E0B', border: '1px solid rgba(245,158,11,0.3)' },
+                title: '智速｜3 小時實作 + 智對課程',
+                desc: '智速建站實作，加入智對提問心法融合應用，雙課精華一次體驗。',
+              },
+              {
+                date: '4 / 3', day: '週五', duration: '線上',
+                badge: '免費說明', badgeStyle: { background: 'rgba(6,182,212,0.12)', color: '#06B6D4', border: '1px solid rgba(6,182,212,0.3)' },
+                title: '智對｜說明會',
+                desc: '介紹智對框架與課程內容，適合還沒決定是否報名的朋友先來了解。',
+              },
+              {
+                date: '4 / 10', day: '週五', duration: '線上',
+                badge: '正式課程', badgeStyle: { background: 'rgba(245,158,11,0.15)', color: '#FCD34D', border: '1px solid rgba(245,158,11,0.4)' },
+                title: '智對｜線上課程',
+                desc: '正式課程，1 小時智對框架完整教學，含 Prompt 指令庫現場演示。',
+              },
+            ].map((s) => (
+              <div key={s.date + s.title} className="card-navy p-6 flex flex-col">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-black" style={{ color: '#F59E0B' }}>{s.date}</span>
+                      <span className="text-sm text-gray-400">{s.day}</span>
+                    </div>
+                    <span className="text-xs text-gray-500">{s.duration}</span>
+                  </div>
+                  <span className="text-xs font-medium px-3 py-1 rounded-full" style={s.badgeStyle}>{s.badge}</span>
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">{s.title}</h3>
+                <p className="text-sm text-gray-300 leading-relaxed mb-5 flex-1">{s.desc}</p>
+                <a
+                  href="https://line.me/R/ti/p/@815ndzxp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all"
+                  style={{ background: '#06C755', color: '#fff', boxShadow: '0 4px 16px rgba(6,199,85,0.25)' }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.8 4.1 7.55v2.7l2.54-1.4c.76.21 1.56.33 2.36.33 5.52 0 10-4.03 10-9s-4.48-9-10-9z"/></svg>
+                  LINE@ 報名此場次
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-xs text-gray-500 mt-8">
+            * 所有場次均為線上直播，購買課程後可永久回放錄影
+          </p>
+        </div>
+      </section>
+
       {/* ───── FAQ ───── */}
       <section className="py-24 px-6 border-t border-white/5">
         <div className="max-w-2xl mx-auto">
@@ -284,7 +356,7 @@ export default function Home() {
           <a href="/privacy" className="text-gray-500 hover:text-amber-400 transition-colors">隱私權政策</a>
           <a href="/refund"  className="text-gray-500 hover:text-amber-400 transition-colors">退款政策</a>
           <a href="/share"   className="text-gray-500 hover:text-amber-400 transition-colors">分享圖片</a>
-          <a href="mailto:service@ronsun.tw" className="text-gray-500 hover:text-amber-400 transition-colors">聯絡我們</a>
+          <a href="https://ronsun.tw/contact" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-amber-400 transition-colors">聯絡我們</a>
         </div>
       </footer>
     </main>
