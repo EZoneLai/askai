@@ -15,11 +15,14 @@ export default function SignupForm() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
-  const valid = form.name && form.email && form.interest && consent
+  const [validationMsg, setValidationMsg] = useState('')
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!valid) return
+    if (!form.name || !form.email) { setValidationMsg('請填寫姓名與 Email'); return }
+    if (!form.interest) { setValidationMsg('請選擇你有興趣的方案'); return }
+    if (!consent) { setValidationMsg('請勾選同意個資告知事項'); return }
+    setValidationMsg('')
     setSubmitting(true)
     setError('')
     try {
@@ -184,21 +187,23 @@ export default function SignupForm() {
         </span>
       </label>
 
-      {error && (
-        <p className="text-red-400 text-sm text-center">{error}</p>
+      {(error || validationMsg) && (
+        <p className="text-amber-400 text-base text-center font-medium">
+          {validationMsg || error}
+        </p>
       )}
 
       <button
         type="submit"
-        disabled={!valid || submitting}
+        disabled={submitting}
         className="w-full py-5 rounded-xl text-xl font-black tracking-wide transition-all duration-200 disabled:cursor-not-allowed"
         style={{
-          background: valid ? 'linear-gradient(135deg, #FCD34D, #F59E0B)' : 'rgba(255,255,255,0.08)',
-          color: valid ? '#060D1A' : '#6B7280',
-          boxShadow: valid ? '0 8px 32px rgba(245,158,11,0.45)' : 'none',
+          background: 'linear-gradient(135deg, #FCD34D, #F59E0B)',
+          color: '#060D1A',
+          boxShadow: '0 8px 32px rgba(245,158,11,0.45)',
         }}
-        onMouseEnter={e => { if (valid && !submitting) { e.currentTarget.style.boxShadow = '0 12px 40px rgba(245,158,11,0.65)'; e.currentTarget.style.transform = 'translateY(-2px)' } }}
-        onMouseLeave={e => { e.currentTarget.style.boxShadow = valid ? '0 8px 32px rgba(245,158,11,0.45)' : 'none'; e.currentTarget.style.transform = 'translateY(0)' }}
+        onMouseEnter={e => { if (!submitting) { e.currentTarget.style.boxShadow = '0 12px 40px rgba(245,158,11,0.65)'; e.currentTarget.style.transform = 'translateY(-2px)' } }}
+        onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(245,158,11,0.45)'; e.currentTarget.style.transform = 'translateY(0)' }}
       >
         {submitting ? '送出中...' : '送出，我要了解更多 →'}
       </button>
