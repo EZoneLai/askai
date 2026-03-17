@@ -2,43 +2,43 @@ import InteractiveComparison from '@/components/InteractiveComparison'
 
 // ── 靜態數據 ─────────────────────────────────────────────
 const BEFORE_AFTER = [
-  { before: '問了半天，結果要自己重寫', after: 'AI 第一輪就給你想要的方向' },
-  { before: 'AI 像個不懂你的陌生人', after: 'AI 像個熟悉你品牌的合作夥伴' },
-  { before: '每次開新對話都要重頭解釋', after: '透過設定讓 AI 永遠記住你的聲音' },
-  { before: '複製提示詞，效果不穩', after: '自己設計問法，品質可重複' },
+  { before: '問半天，不如自己寫', after: 'AI 第一輪就給你要的方向' },
+  { before: '邏輯正確，但感覺不對', after: '輸出有你的品牌味道' },
+  { before: '每次都要重頭解釋一遍', after: 'AI 永遠記住你的聲音' },
+  { before: '想用 AI 接案，作品集難產', after: '自己的問法，品質可重複' },
 ]
 
 const CURRICULUM = [
   {
-    num: '01', title: '診斷你的 AI 對話盲點',
-    items: ['為什麼框架問法會失靈', '三種低效提問模式拆解'],
+    num: '01', title: '找出你跟 AI 鬼打牆的原因',
+    items: ['三種最常見的低效問法', '為什麼「框架型提示詞」會失靈'],
   },
   {
     num: '02', title: '智對心法實戰',
-    items: ['反向提問的設計邏輯', '讓 AI 進入「思考空間」而非直接執行', '現場示範：普通問法 vs 智對問法'],
+    items: ['讓 AI 先問你，再幫你想', '同一任務：普通問法 vs 智對問法現場對比'],
   },
   {
     num: '加碼', title: '智對 Prompt 指令庫禮包',
-    items: ['行銷文案、提案、客服、社群內容萬用 Prompt', '永久使用，持續更新'],
+    items: ['行銷文案、提案、客服、社群 — 直接套用', '永久使用，持續更新'],
   },
 ]
 
 const FAQS = [
   {
-    q: '我完全不懂技術，這堂課適合我嗎？',
-    a: '完全適合。這堂課教「對話心法」，不是技術。只需要會打字、會用 ChatGPT 就夠了。',
+    q: '不懂技術也能學嗎？',
+    a: '完全可以。這堂課教的是對話方式，不是技術。只要會打字、會用 ChatGPT 就夠了。',
   },
   {
-    q: '方案 A 和方案 B 差在哪裡？',
-    a: '方案 A 是一次付費錄影課。方案 B 是月訂閱，除完整課程外還有 Skool 社群、每月 AI 工具更新、直播參與權。',
+    q: '方案 A 和方案 B 差在哪？',
+    a: '方案 A 是一次付清，自己看錄影。方案 B 是月訂閱，除了完整課程，還有 Skool 社群、每月 AI 工具更新、直播問答。',
   },
   {
-    q: '課程是錄影還是直播？',
-    a: '主課程是錄影，買完馬上看。方案 B 會員可參加定期直播，有即時問答與最新工具示範。',
+    q: '是錄影還是直播？',
+    a: '主課程是錄影，買完馬上看、不限次數。方案 B 會員另有定期直播，可以即時發問。',
   },
   {
-    q: '方案 B 可以隨時取消嗎？',
-    a: '可以。月訂閱，沒有綁約，隨時在 Skool 後台取消。取消後仍保有方案 A 的錄影課程。',
+    q: '方案 B 可以隨時退嗎？',
+    a: '可以，沒有綁約。在 Skool 後台取消就好，取消後仍保有錄影課程。',
   },
 ]
 
@@ -100,29 +100,26 @@ export default function Home() {
       <section className="py-24 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <SectionHeader>
-            你有沒有這種感覺——<br />
-            <span className="text-amber-gradient">問了半天，不如自己寫？</span>
+            你有沒有跟 AI<br />
+            <span className="text-amber-gradient">鬼打牆的經驗？</span>
           </SectionHeader>
 
           <div className="space-y-4">
             {[
-              { emoji: '😤', title: '每次都要整段重寫', desc: '它寫的聽起來對，但沒有靈魂。' },
-              { emoji: '🤔', title: 'AI 給的完全不是你要的', desc: '邏輯工整，就是跟你的品牌無關。' },
-              { emoji: '😰', title: '沒有方法論，全靠運氣', desc: '每次重新摸索，輸出品質不穩定。' },
+              { emoji: '🔄', title: '跟 AI 鬼打牆，問到懷疑人生？' },
+              { emoji: '✍️', title: '問 AI 半天，還不如自己寫？' },
+              { emoji: '😐', title: '方案邏輯正確，但感覺就是不對？' },
+              { emoji: '📂', title: '想用 AI 接案，作品集卻難產？' },
             ].map((item) => (
               <div key={item.title} className="card-navy p-6 flex gap-5 items-center">
                 <span className="text-4xl flex-shrink-0">{item.emoji}</span>
-                <div>
-                  <p className="text-xl font-bold mb-1">{item.title}</p>
-                  <p className="text-base text-gray-300">{item.desc}</p>
-                </div>
+                <p className="text-xl font-bold">{item.title}</p>
               </div>
             ))}
           </div>
 
           <div className="text-center mt-10 p-6 rounded-2xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-            <p className="text-lg text-gray-200">問題不在 AI。</p>
-            <p className="text-xl font-bold text-white mt-1">問題在於你們的對話方式，從來沒被好好設計過。</p>
+            <p className="text-xl font-bold text-white">問題不在 AI，在於沒有人教過你怎麼跟它對話。</p>
           </div>
         </div>
       </section>
@@ -160,7 +157,7 @@ export default function Home() {
       <section className="py-24 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <SectionHeader>
-            學完之後，<span className="text-amber-gradient">你的 AI 用起來會差很多</span>
+            學完智對框架，<span className="text-amber-gradient">用 AI 的方式直接不一樣</span>
           </SectionHeader>
 
           <div className="space-y-4">
@@ -221,11 +218,10 @@ export default function Home() {
           <p className="text-base text-gray-300 mb-6">容晟科技創辦人・10 年系統分析師 × 專案經理 × 創業者</p>
           <blockquote className="text-xl text-gray-200 leading-relaxed border-l-4 text-left pl-6"
             style={{ borderColor: '#F59E0B' }}>
-            大多數人用 AI 的方式，和用 Google 沒有本質差別——<br />
-            <strong className="text-white">「輸入關鍵字，等待答案。」</strong><br /><br />
-            AI 不是搜尋引擎。<br />
-            它是一個可以被你引導去<strong className="text-white">「思考」</strong>的對話對象。<br />
-            這堂課，我要把這個差距消滅掉。
+            大多數人問 AI，其實還是在用 Google 的邏輯——<br />
+            <strong className="text-white">輸入關鍵字，等答案。</strong><br /><br />
+            但 AI 可以被你引導去<strong className="text-white">思考</strong>。<br />
+            這堂課，我要教你這個差距。
           </blockquote>
         </div>
       </section>
