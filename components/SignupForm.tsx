@@ -191,14 +191,14 @@ export default function SignupForm() {
       <button
         type="submit"
         disabled={!valid || submitting}
-        className="w-full py-5 rounded-xl text-xl font-black tracking-wide transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none"
+        className="w-full py-5 rounded-xl text-xl font-black tracking-wide transition-all duration-200 disabled:cursor-not-allowed"
         style={{
-          background: 'linear-gradient(135deg, #FCD34D, #F59E0B)',
-          color: '#060D1A',
-          boxShadow: '0 8px 32px rgba(245,158,11,0.40)',
+          background: valid ? 'linear-gradient(135deg, #FCD34D, #F59E0B)' : 'rgba(255,255,255,0.08)',
+          color: valid ? '#060D1A' : '#6B7280',
+          boxShadow: valid ? '0 8px 32px rgba(245,158,11,0.45)' : 'none',
         }}
-        onMouseEnter={e => { if (valid && !submitting) (e.currentTarget.style.boxShadow = '0 12px 40px rgba(245,158,11,0.60)'); (e.currentTarget.style.transform = 'translateY(-2px)') }}
-        onMouseLeave={e => { (e.currentTarget.style.boxShadow = '0 8px 32px rgba(245,158,11,0.40)'); (e.currentTarget.style.transform = 'translateY(0)') }}
+        onMouseEnter={e => { if (valid && !submitting) { e.currentTarget.style.boxShadow = '0 12px 40px rgba(245,158,11,0.65)'; e.currentTarget.style.transform = 'translateY(-2px)' } }}
+        onMouseLeave={e => { e.currentTarget.style.boxShadow = valid ? '0 8px 32px rgba(245,158,11,0.45)' : 'none'; e.currentTarget.style.transform = 'translateY(0)' }}
       >
         {submitting ? '送出中...' : '送出，我要了解更多 →'}
       </button>
