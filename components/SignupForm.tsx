@@ -191,7 +191,14 @@ export default function SignupForm() {
       <button
         type="submit"
         disabled={!valid || submitting}
-        className="btn-primary w-full text-base py-4 disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none"
+        className="w-full py-5 rounded-xl text-xl font-black tracking-wide transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none"
+        style={{
+          background: 'linear-gradient(135deg, #F59E0B, #E08A00)',
+          color: '#060D1A',
+          boxShadow: '0 8px 32px rgba(245,158,11,0.40)',
+        }}
+        onMouseEnter={e => { if (valid && !submitting) (e.currentTarget.style.boxShadow = '0 12px 40px rgba(245,158,11,0.60)'); (e.currentTarget.style.transform = 'translateY(-2px)') }}
+        onMouseLeave={e => { (e.currentTarget.style.boxShadow = '0 8px 32px rgba(245,158,11,0.40)'); (e.currentTarget.style.transform = 'translateY(0)') }}
       >
         {submitting ? '送出中...' : '送出，我要了解更多 →'}
       </button>
