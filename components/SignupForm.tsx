@@ -193,7 +193,7 @@ export default function SignupForm() {
         disabled={!valid || submitting}
         className="w-full py-5 rounded-xl text-xl font-black tracking-wide transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none"
         style={{
-          background: 'linear-gradient(135deg, #F59E0B, #E08A00)',
+          background: 'linear-gradient(135deg, #FCD34D, #F59E0B)',
           color: '#060D1A',
           boxShadow: '0 8px 32px rgba(245,158,11,0.40)',
         }}
