@@ -221,13 +221,22 @@ export default function Home() {
           </div>
           <h2 className="text-3xl font-bold mb-2">我是 Eugene</h2>
           <p className="text-base text-gray-300 mb-6">容晟科技創辦人・10 年系統分析師 × 專案經理 × 創業者</p>
-          <blockquote className="text-xl text-gray-200 leading-relaxed border-l-4 text-left pl-6"
+          <blockquote className="text-xl text-gray-200 leading-relaxed border-l-4 text-left pl-6 mb-10"
             style={{ borderColor: '#F59E0B' }}>
             大多數人問 AI，其實還是在用 Google 的邏輯——<br />
             <strong className="text-white">輸入關鍵字，等答案。</strong><br /><br />
             但 AI 可以被你引導去<strong className="text-white">思考</strong>。<br />
             這堂課，我要教你這個差距。
           </blockquote>
+
+          <div className="text-center py-8 px-6 rounded-2xl"
+            style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.10), rgba(6,182,212,0.08))', border: '1.5px solid rgba(245,158,11,0.25)' }}>
+            <p className="text-lg text-gray-300 mb-2">不用再「輸入關鍵字——等答案」</p>
+            <p className="text-2xl md:text-3xl font-black text-white mb-2">
+              這堂課教你<span className="text-ai-gradient">「AI 思考」</span>
+            </p>
+            <p className="text-lg text-gray-200">輕鬆數位賦能，駕馭轉型趨勢</p>
+          </div>
         </div>
       </section>
 
