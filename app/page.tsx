@@ -123,7 +123,11 @@ export default function Home() {
           <div className="text-center mt-10 p-8 rounded-2xl" style={{ background: 'rgba(245,158,11,0.07)', border: '2px solid rgba(245,158,11,0.3)' }}>
             <p className="text-2xl md:text-3xl font-black text-white leading-snug">
               真的不是 AI 太笨，<br />
-              <span className="text-ai-gradient">只是你們的對話需要加點設計！😉</span>
+              <span className="text-ai-gradient">只是你們的對話需要加點設計！</span>
+              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full text-base ml-1 align-middle"
+                style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)' }}>
+                ✦
+              </span>
             </p>
           </div>
         </div>
