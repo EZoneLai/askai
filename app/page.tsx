@@ -118,8 +118,11 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-10 p-6 rounded-2xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-            <p className="text-xl font-bold text-white">問題不在 AI，在於沒有人教過你怎麼跟它對話。</p>
+          <div className="text-center mt-10 p-8 rounded-2xl" style={{ background: 'rgba(245,158,11,0.07)', border: '2px solid rgba(245,158,11,0.3)' }}>
+            <p className="text-2xl md:text-3xl font-black text-white leading-snug">
+              真的不是 AI 太笨，<br />
+              <span className="text-ai-gradient">只是你們的對話需要加點設計！😉</span>
+            </p>
           </div>
         </div>
       </section>
