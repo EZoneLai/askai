@@ -1,4 +1,6 @@
 import InteractiveComparison from '@/components/InteractiveComparison'
+import PricingCards from '@/components/PricingCards'
+import SignupForm from '@/components/SignupForm'
 
 // ── 靜態數據 ─────────────────────────────────────────────
 const BEFORE_AFTER = [
@@ -236,62 +238,7 @@ export default function Home() {
             選一個你現在需要的進場方式
           </SectionHeader>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* 方案 A */}
-            <div className="card-navy p-8">
-              <p className="text-base text-gray-300 mb-1">自學實戰版</p>
-              <h3 className="text-3xl font-bold mb-5">方案 A</h3>
-              <div className="mb-7">
-                <span className="text-4xl font-black">NTD 1,200</span>
-                <span className="text-base text-gray-300 ml-2">一次付費</span>
-              </div>
-              <ul className="space-y-4 mb-8">
-                {[
-                  '完整 1 小時錄影課程',
-                  '智對 Prompt 指令庫禮包（永久使用）',
-                  '買完馬上看，不限次數回放',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base text-gray-200">
-                    <span className="mt-0.5 flex-shrink-0" style={{ color: '#F59E0B' }}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#signup" className="btn-secondary block text-center text-base">
-                立即購買，馬上開始看
-              </a>
-            </div>
-
-            {/* 方案 B */}
-            <div className="relative p-8 rounded-2xl" style={{ background: 'rgba(245,158,11,0.07)', border: '2px solid rgba(245,158,11,0.4)' }}>
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="tag font-bold px-5 py-1.5 text-sm">最多人選擇</span>
-              </div>
-              <p className="text-base text-gray-300 mb-1">策研領航版</p>
-              <h3 className="text-3xl font-bold mb-5">方案 B</h3>
-              <div className="mb-7">
-                <span className="text-4xl font-black text-amber-gradient">$9 USD</span>
-                <span className="text-base text-gray-300 ml-2">／月，隨時取消</span>
-              </div>
-              <ul className="space-y-4 mb-8">
-                {[
-                  '立即免費獲得完整課程',
-                  '加入 Skool 策研封閉社群',
-                  '每月更新：AI 實戰工作流 + 最新工具策略',
-                  '直播場次優先參與權',
-                  '專屬顧問社群支援',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base text-white">
-                    <span className="mt-0.5 flex-shrink-0" style={{ color: '#F59E0B' }}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#signup" className="btn-primary block text-center text-base">
-                加入領航，$9 進場
-              </a>
-            </div>
-          </div>
+          <PricingCards />
         </div>
       </section>
 
@@ -310,25 +257,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───── Final CTA ───── */}
-      <section id="signup" className="py-28 px-6 border-t border-white/5 text-center">
-        <div className="max-w-xl mx-auto">
-          <div className="text-6xl mb-8">⚡</div>
-          <h2 className="text-4xl md:text-5xl font-black mb-5">
-            準備好讓 AI<br />
-            <span className="text-ai-gradient">真正替你思考了嗎？</span>
-          </h2>
-          <p className="text-xl text-gray-200 mb-10">1 小時課程 · 智對框架 · Prompt 指令庫</p>
-          <a href="#pricing" className="btn-primary text-lg px-10 py-4">立即報名，今天就學會</a>
+      {/* ───── Signup Form ───── */}
+      <section id="signup" className="py-28 px-6 border-t border-white/5">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="section-divider" />
+            <h2 className="text-3xl md:text-5xl font-black mb-4">
+              準備好了嗎？<br />
+              <span className="text-ai-gradient">留下你的資料，我們來聯絡你</span>
+            </h2>
+            <p className="text-lg text-gray-200">1 小時課程 · 智對框架 · Prompt 指令庫</p>
+          </div>
+          <SignupForm />
         </div>
       </section>
 
       {/* ───── Footer ───── */}
       <footer className="py-8 px-6 border-t border-white/5 text-center">
-        <p className="text-gray-400 text-sm">
-          © 2025 策研智對 · Ceyan AI ·{' '}
-          <a href="/share" className="underline hover:text-amber-400 transition-colors">分享圖片</a>
-        </p>
+        <p className="text-gray-400 text-sm mb-3">© 2025 策研智對 · Ceyan AI · 容晟科技有限公司</p>
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <a href="/privacy" className="text-gray-500 hover:text-amber-400 transition-colors">隱私權政策</a>
+          <a href="/refund"  className="text-gray-500 hover:text-amber-400 transition-colors">退款政策</a>
+          <a href="/share"   className="text-gray-500 hover:text-amber-400 transition-colors">分享圖片</a>
+          <a href="mailto:service@ronsun.tw" className="text-gray-500 hover:text-amber-400 transition-colors">聯絡我們</a>
+        </div>
       </footer>
     </main>
   )
