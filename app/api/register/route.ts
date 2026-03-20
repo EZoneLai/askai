@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
   const { data, error } = await resend.emails.send({
     from: '容晟科技 <service@ronsunai.tw>',
     to: [email],
-    cc: ['service@ronsunai.tw', 'ezonelai@gmail.com'],
+    cc: ['service@ronsunai.tw', 'ezonelai@gmail.com', 'ronsunai@gmail.com'],
     subject: '【收到了！】策研智對 AI 課程報名確認 [askai]',
     html: `
       <div style="font-family: sans-serif; max-width: 640px; margin: auto; color: #1a1a1a;">
