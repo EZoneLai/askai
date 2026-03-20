@@ -19,17 +19,17 @@ export default function SignupForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!form.name || !form.email) { setValidationMsg('請填寫姓名與 Email'); return }
+    if (!form.name || !form.email || !form.lineId) { setValidationMsg('請填寫姓名、Email 與 LINE ID'); return }
     if (!form.interest) { setValidationMsg('請選擇你有興趣的方案'); return }
     if (!consent) { setValidationMsg('請勾選同意個資告知事項'); return }
     setValidationMsg('')
     setSubmitting(true)
     setError('')
     try {
-      const res = await fetch('https://formspree.io/f/xykdwwnd', {
+      const res = await fetch('/api/register', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...form, source: 'askai-landing' }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form }),
       })
       if (res.ok) setSubmitted(true)
       else throw new Error('送出失敗')
@@ -116,7 +116,7 @@ export default function SignupForm() {
 
       {/* LINE ID */}
       <div>
-        <label className="block text-base font-semibold text-gray-200 mb-2">LINE ID</label>
+        <label className="block text-base font-semibold text-gray-200 mb-2">LINE ID <span className="text-red-400">*</span></label>
         <input
           type="text"
           value={form.lineId}
