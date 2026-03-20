@@ -262,16 +262,10 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 gap-5">
             {[
               {
-                date: '3 / 20', day: '週四', duration: '3 小時',
-                badge: '免費說明', badgeStyle: { background: 'rgba(6,182,212,0.12)', color: '#06B6D4', border: '1px solid rgba(6,182,212,0.3)' },
-                title: '智速｜3 小時說明會',
-                desc: '從想法到上線，手把手帶你走完 16 步驟流程，現場解答疑問。',
-              },
-              {
                 date: '3 / 27', day: '週四', duration: '3 小時',
-                badge: '雙課融合', badgeStyle: { background: 'rgba(245,158,11,0.12)', color: '#F59E0B', border: '1px solid rgba(245,158,11,0.3)' },
-                title: '智速｜3 小時實作 + 智對課程',
-                desc: '智速建站實作，加入智對提問心法融合應用，雙課精華一次體驗。',
+                badge: '正式課程', badgeStyle: { background: 'rgba(245,158,11,0.15)', color: '#FCD34D', border: '1px solid rgba(245,158,11,0.4)' },
+                title: '智速｜AI Vibe Coding 正式課程',
+                desc: '台北／線上同步。從想法到上線 16 步驟完整實作，含 Mega Prompt 指令組現場演示。',
               },
               {
                 date: '4 / 3', day: '週五', duration: '線上',
@@ -331,6 +325,33 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ───── 邀課 ───── */}
+      <section className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-medium mb-6"
+            style={{ background: 'rgba(245,158,11,0.12)', color: '#F59E0B', border: '1px solid rgba(245,158,11,0.3)' }}>
+            企業 / 團體邀課
+          </div>
+          <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
+            想為你的團隊安排專屬課程？
+          </h2>
+          <p className="text-base text-gray-300 leading-relaxed mb-8">
+            適合企業內訓、社群包班、學校合作。<br />
+            課程內容可依需求客製，歡迎聯絡洽談。
+          </p>
+          <a
+            href="https://line.me/R/ti/p/@815ndzxp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-base transition-all"
+            style={{ background: '#06C755', color: '#fff', boxShadow: '0 6px 24px rgba(6,199,85,0.35)' }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.8 4.1 7.55v2.7l2.54-1.4c.76.21 1.56.33 2.36.33 5.52 0 10-4.03 10-9s-4.48-9-10-9z"/></svg>
+            LINE@ 洽詢邀課
+          </a>
         </div>
       </section>
 

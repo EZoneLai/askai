@@ -3,9 +3,10 @@
 import { useState } from 'react'
 
 const INTEREST_OPTIONS = [
-  { value: 'plan-a', label: '方案 A — NT$1,200 一次付費' },
-  { value: 'plan-b', label: '方案 B — $9 USD/月 訂閱制' },
-  { value: 'both',   label: '兩個都想了解' },
+  { value: 'ceyan',    label: '智對｜AI 啟問實戰課' },
+  { value: 'devaccel', label: '智速｜方案 B — NT$6,800（含直播答疑）' },
+  { value: 'diy',      label: '智速｜方案 C — NT$16,800（代做服務）' },
+  { value: 'consult',  label: '諮詢代做方案（前往策研接案頁）' },
 ]
 
 export default function SignupForm() {
@@ -19,6 +20,10 @@ export default function SignupForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (form.interest === 'consult') {
+      window.open('https://ceyan.ronsunai.tw/intake', '_blank')
+      return
+    }
     if (!form.name || !form.email || !form.lineId) { setValidationMsg('請填寫姓名、Email 與 LINE ID'); return }
     if (!form.interest) { setValidationMsg('請選擇你有興趣的方案'); return }
     if (!consent) { setValidationMsg('請勾選同意個資告知事項'); return }
@@ -210,7 +215,7 @@ export default function SignupForm() {
         onMouseEnter={e => { if (!submitting) { e.currentTarget.style.boxShadow = '0 12px 40px rgba(245,158,11,0.65)'; e.currentTarget.style.transform = 'translateY(-2px)' } }}
         onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(245,158,11,0.45)'; e.currentTarget.style.transform = 'translateY(0)' }}
       >
-        {submitting ? '送出中...' : '送出，我要了解更多 →'}
+        {form.interest === 'consult' ? '前往策研接案諮詢 →' : submitting ? '送出中...' : '送出，我要了解更多 →'}
       </button>
     </form>
   )

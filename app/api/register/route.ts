@@ -12,9 +12,10 @@ export async function POST(req: NextRequest) {
   }
 
   const interestLabel: Record<string, string> = {
-    'plan-a': '方案 A — NT$1,200 一次付費',
-    'plan-b': '方案 B — $9 USD/月 訂閱制',
-    'both':   '兩個都想了解',
+    'ceyan':    '智對｜AI 啟問實戰課',
+    'devaccel': '智速｜方案 B — NT$6,800',
+    'diy':      '智速｜方案 C — NT$16,800（代做）',
+    'consult':  '諮詢代做方案',
   }
   const interestText = interestLabel[interest] ?? interest
 
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest) {
     from: '容晟科技 <service@ronsunai.tw>',
     to: [email],
     cc: ['service@ronsunai.tw', 'ezonelai@gmail.com'],
-    subject: '【收到了！】策研智對 AI 課程報名確認',
+    subject: '【收到了！】策研智對 AI 課程報名確認 [askai]',
     html: `
       <div style="font-family: sans-serif; max-width: 640px; margin: auto; color: #1a1a1a;">
         <div style="background: #060D1A; padding: 32px; border-radius: 16px 16px 0 0;">
