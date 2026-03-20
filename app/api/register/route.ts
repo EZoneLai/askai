@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { appendToSheet } from '@/lib/sheets'
 
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
@@ -58,6 +59,27 @@ export async function POST(req: NextRequest) {
 
   if (error) {
     return NextResponse.json({ error }, { status: 500 })
+  }
+
+  try {
+    await appendToSheet([
+      new Date().toISOString(),       // A 時間戳
+      'askai',                        // B 來源
+      name,                           // C 姓名
+      email,                          // D Email
+      phone ?? '',                    // E 手機
+      lineId,                         // F LINE ID
+      interestText,                   // G 項目/課程
+      '',                             // H 金額（課程表單無）
+      '',                             // I 資訊來源
+      '',                             // J 性別
+      '',                             // K 年齡
+      '待聯絡',                       // L 狀態
+      '',                             // M 備注
+    ])
+  } catch (sheetError) {
+    console.error('Google Sheets append failed:', sheetError)
+    // 不影響主流程，僅記錄 log
   }
 
   return NextResponse.json({ success: true, data })
