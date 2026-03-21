@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await appendToSheet([
-      new Date().toISOString(),       // A 時間戳
+      new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false }),  // A 時間戳
       'askai',                        // B 來源
       name,                           // C 姓名
       email,                          // D Email
