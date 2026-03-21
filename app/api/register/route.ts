@@ -82,5 +82,5 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, data, sheetError: String(sheetError), sheetId: process.env.GOOGLE_SHEET_ID ?? 'MISSING' })
   }
 
-  return NextResponse.json({ success: true, data })
+  return NextResponse.json({ success: true, data, sheetId: process.env.GOOGLE_SHEET_ID ?? 'MISSING' })
 }
