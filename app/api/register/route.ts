@@ -61,8 +61,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error }, { status: 500 })
   }
 
+  let sheetResult: unknown
   try {
-    await appendToSheet([
+    sheetResult = await appendToSheet([
       new Date().toISOString(),       // A 時間戳
       'askai',                        // B 來源
       name,                           // C 姓名
@@ -82,5 +83,5 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, data, sheetError: String(sheetError), sheetId: process.env.GOOGLE_SHEET_ID ?? 'MISSING' })
   }
 
-  return NextResponse.json({ success: true, data, sheetId: process.env.GOOGLE_SHEET_ID ?? 'MISSING' })
+  return NextResponse.json({ success: true, data, sheetId: process.env.GOOGLE_SHEET_ID ?? 'MISSING', sheetResult })
 }

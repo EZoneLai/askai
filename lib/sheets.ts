@@ -11,7 +11,7 @@ export async function appendToSheet(row: (string | number | null)[]) {
 
   const sheets = google.sheets({ version: 'v4', auth })
 
-  await sheets.spreadsheets.values.append({
+  const res = await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEET_ID,
     range: '工作表1!A:M',
     valueInputOption: 'USER_ENTERED',
@@ -19,4 +19,5 @@ export async function appendToSheet(row: (string | number | null)[]) {
       values: [row],
     },
   })
+  return res.data
 }
