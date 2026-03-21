@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
     ])
   } catch (sheetError) {
     console.error('Google Sheets append failed:', sheetError)
-    // 不影響主流程，僅記錄 log
+    return NextResponse.json({ success: true, data, sheetError: String(sheetError), sheetId: process.env.GOOGLE_SHEET_ID ?? 'MISSING' })
   }
 
   return NextResponse.json({ success: true, data })
