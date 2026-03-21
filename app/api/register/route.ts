@@ -61,6 +61,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error }, { status: 500 })
   }
 
+  // P20 CRM — fire-and-forget，不影響主流程
+  fetch('https://rsun.me/api/webhook/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      token: 'tok_8rap1063rvj1',
+      source: 'askai',
+      name,
+      email,
+      phone: phone ?? '',
+      message: interestText,
+    }),
+  }).catch(() => {})
+
   try {
     await appendToSheet([
       new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false }),  // A 時間戳
