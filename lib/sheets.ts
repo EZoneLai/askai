@@ -13,7 +13,7 @@ export async function appendToSheet(row: (string | number | null)[]) {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEET_ID,
-    range: 'Sheet1!A:M',
+    range: '工作表1!A:M',
     valueInputOption: 'USER_ENTERED',
     requestBody: {
       values: [row],
