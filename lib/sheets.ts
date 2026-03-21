@@ -11,13 +11,13 @@ export async function appendToSheet(row: (string | number | null)[]) {
 
   const sheets = google.sheets({ version: 'v4', auth })
 
-  const res = await sheets.spreadsheets.values.append({
+  await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEET_ID,
     range: '工作表1!A:M',
     valueInputOption: 'USER_ENTERED',
+    insertDataOption: 'INSERT_ROWS',
     requestBody: {
       values: [row],
     },
   })
-  return res.data
 }
