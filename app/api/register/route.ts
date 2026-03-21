@@ -72,6 +72,7 @@ export async function POST(req: NextRequest) {
       email,
       phone: phone ?? '',
       message: interestText,
+      line_id: lineId ?? '',
     }),
   }).catch(() => {})
 
